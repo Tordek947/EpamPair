@@ -1,22 +1,21 @@
 package car_task.model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-class CarFactory {
+public class CarFactory {
 	private static String[] makers = {"Toyota","Lexus","Ford","Lada","BMW","Tesla"};
 	private static String[] models = {"Mini","Focus","Golf","Passat","Camry"};
 	private static String[] colors = {"White","Blue","Black","Yellow","Grey"};
 	private static int nextId = 0; 
 	
-	static ArrayList<Car> generateCars(){
-		var carList = new ArrayList<Car>();
-		for(int i = 0; i < 20; i++)
+	public static ArrayList<Car> generateCars(int carCount){
+		var carList = new ArrayList<Car>(carCount);
+		for(int i = 0; i < carCount; i++)
 			carList.add(getCar());
 		return carList;
 	}
-	static Car getCar() {
+	private static Car getCar() {
 		nextId++;
 		return new Car(generateMake(),generateModel(),generateColor(),nextId, generateYear(),generatePrice(),generateRegNumber());
 	}

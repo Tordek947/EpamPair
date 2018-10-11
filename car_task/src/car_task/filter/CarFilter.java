@@ -26,8 +26,7 @@ public class CarFilter {
 	
 	public List<Car> ageModelFilter(String model, int minAge){
 		var filteredList = new ArrayList<Car>();
-		Calendar c = new GregorianCalendar();
-		int currentYear = c.get(Calendar.YEAR);
+		int currentYear = getCurrentYear();
 		for(Car car : carList) {
 			if ((car.getModel().compareTo(model) == 0) &&
 					((currentYear - car.getReleaseYear()) > minAge)) {
@@ -37,6 +36,11 @@ public class CarFilter {
 		return filteredList;
 	}
 	
+	private int getCurrentYear() {
+		Calendar c = new GregorianCalendar();
+		return c.get(Calendar.YEAR);
+	}
+
 	public List<Car> releaseYearMinPriceFilter(int year, int minPrice){
 		var filteredList = new ArrayList<Car>();
 		for(Car car : carList) {
