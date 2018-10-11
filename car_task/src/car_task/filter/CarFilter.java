@@ -51,17 +51,4 @@ public class CarFilter {
 		}
 		return filteredList;
 	}
-	
-	enum FilterType{
-		MAKE("by make"),
-		AGE_MODEL("by model with minimum car age"),
-		RELEASE_YEAR_MIN_PRICE("by release year with minimum car price");
-		private String description;
-		private FilterType(String description) {
-			this.description = description;
-		}
-		public String getDescription() {
-			return description;
-		}
-	}
 }
